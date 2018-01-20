@@ -31,6 +31,7 @@ fetchNeighborhoods = () => {
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   const select = document.getElementById('neighborhoods-select');
+  select.setAttribute('tabindex', '1');
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
@@ -38,6 +39,13 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
     select.append(option);
   });
 }
+const neighborhoodSelect = document.getElementById('neighborhoods-select');
+const cuisineSelect = document.getElementById('cuisines-select');
+const mapTabIndex = $('#map *');
+
+neighborhoodSelect.setAttribute('tabindex', 2);
+cuisineSelect.setAttribute('tabindex', 2);
+// mapTabIndex.attr('tabindex', 0);
 
 /**
  * Fetch all cuisines and set their HTML.
